@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >=3.8
-    - oommfc ==0.60.*
+    - oommfc ==0.61.*
     - numpy >=1.19
     - scipy >=1.6
 
@@ -45,3 +45,4 @@ extra:
     - fangohr
     - lang-m
     - samjrholt
+    - swapneelap
