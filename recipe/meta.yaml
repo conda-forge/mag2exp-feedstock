@@ -6,25 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 06daab8162c78d95591c6feb017e693dd838d10a6d874ded9d2e2d23c26e9891
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - oommfc >=0.65.0
     - numpy >=1.19
     - scipy >=1.6
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - mag2exp
   commands:
