@@ -1,5 +1,5 @@
 {% set name = "mag2exp" %}
-{% set version = "0.63.0" %}
+{% set version = "0.64.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 06daab8162c78d95591c6feb017e693dd838d10a6d874ded9d2e2d23c26e9891
+  sha256: 2c969c2c095d1112aded3f0beb1cdb7df59d9b5e4c52a755399109e37caf29cc
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python {{ python_min }}
+    - setuptools
     - pip
   run:
     - python >={{ python_min }}
-    - oommfc >=0.65.0
+    - oommfc >=0.66.0
     - numpy >=1.19
     - scipy >=1.6
 
